@@ -31,7 +31,6 @@ public class Meme extends JPanel {
 	}
 
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
 
 		Date today = new Date();
 		Calendar saikiCal = Calendar.getInstance();
@@ -52,7 +51,8 @@ public class Meme extends JPanel {
 		top.add(displayLabel);
 
 		JPanel middle = new JPanel();
-		BufferedImage myPicture = ImageIO.read(new File("meme.png"));
+		// Heads Up, File names are case sensitve on Linux (9/5/2022)
+		BufferedImage myPicture = ImageIO.read(new File("Meme.png"));
 		JLabel imgLabel = new JLabel(new ImageIcon(myPicture));
 		Dimension maxSize = new Dimension(800,863);
 		imgLabel.setPreferredSize(maxSize);
