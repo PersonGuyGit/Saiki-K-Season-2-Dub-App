@@ -13,18 +13,13 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 
-//Program Title: Meme.java
-//Author: Luke Gebbink
-//Last Modded: 4/28/2020
-//Desc: This program displays a "Meme" gui, that shows the time passed 
-//      since Saiki K has not been dubbed for a second or third season. 
-
 public class Meme extends JPanel {
 
 	private static JFrame frame;
 	private static JLabel displayLabel;
 	private static JLabel myName;
 
+	// Calculates the time between Two Dates
 	public long daysBetween(Date one, Date two) {
 		long dif = (one.getTime() - two.getTime()) / 86400000;
 		return Math.abs(dif);
@@ -32,6 +27,7 @@ public class Meme extends JPanel {
 
 	public static void main(String[] args) throws IOException {
 
+		// Create Date objects 
 		Date today = new Date();
 		Calendar saikiCal = Calendar.getInstance();
 		saikiCal.set(2018, 3, 1);
@@ -40,13 +36,12 @@ public class Meme extends JPanel {
 		Meme Object = new Meme();
 		long days = Object.daysBetween(today, dubPromised);
 
-		SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd YYYY");
-		String currentDate = sdf.format(today);
-		String seasonTwoDate = sdf.format(dubPromised);
-
+		// Create Panel and Label for Meme
 		displayLabel = new JLabel(days + " days have passed without a Saiki K season 2 & 3 English Dub.");
 		JPanel top = new JPanel();
 		top.setBackground(new Color(255,122,145));
+
+		// Your OS needs to have impact installed for this to work, with the desired font
 		displayLabel.setFont(new Font("Impact", Font.PLAIN, 50));
 		top.add(displayLabel);
 
